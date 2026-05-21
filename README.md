@@ -15,7 +15,7 @@ pip install -r requirements.txt
 
 ### 打包成 exe
 ```
-pyinstaller --noconsole --onefile --windowed --add-data "resources;resources" --icon="icon.ico" sukura_tree.py
+pyinstaller --noconsole --onefile --windowed --add-data "resources;resources" sukura_tree.py
 ```
 
 ## 目录结构
