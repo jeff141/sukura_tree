@@ -2,9 +2,9 @@ import pygame
 import random
 import sys
 import os
-import win32gui
-import win32con
-import win32api
+import win32gui   # noqa: provided by pywin32
+import win32con   # noqa: provided by pywin32
+import win32api   # noqa: provided by pywin32
 
 
 def resource_path(relative_path):
