@@ -1,9 +1,17 @@
 import pygame
 import random
 import sys
+import os
 import win32gui
 import win32con
 import win32api
+
+
+def resource_path(relative_path):
+    """兼容开发环境与 PyInstaller 打包后的资源路径"""
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath('.'), relative_path)
 
 # 初始化 Pygame
 pygame.init()
@@ -25,12 +33,12 @@ win32gui.SetWindowPos(hwnd, win32con.HWND_TOPMOST, 0, 0, 0, 0, win32con.SWP_NOMO
 
 # --- 加载资源 ---
 try:
-    petal_image = pygame.image.load('resources/petal.png').convert_alpha()
-    trunk_image = pygame.image.load('resources/trunk.png').convert_alpha()
+    petal_image = pygame.image.load(resource_path('resources/petal.png')).convert_alpha()
+    trunk_image = pygame.image.load(resource_path('resources/trunk.png')).convert_alpha()
     # 新增：加载三部分树冠
-    crown1 = pygame.image.load('resources/crown1.png').convert_alpha()
-    crown2 = pygame.image.load('resources/crown2.png').convert_alpha()
-    crown3 = pygame.image.load('resources/crown3.png').convert_alpha()
+    crown1 = pygame.image.load(resource_path('resources/crown1.png')).convert_alpha()
+    crown2 = pygame.image.load(resource_path('resources/crown2.png')).convert_alpha()
+    crown3 = pygame.image.load(resource_path('resources/crown3.png')).convert_alpha()
 except Exception as e:
     print(f"图片加载失败，请检查文件名: {e}")
     sys.exit()
