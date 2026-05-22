@@ -31,6 +31,10 @@ MAGIC_COLOR = (58, 37, 23)
 win32gui.SetLayeredWindowAttributes(hwnd, win32api.RGB(*MAGIC_COLOR), 0, win32con.LWA_COLORKEY)
 win32gui.SetWindowPos(hwnd, win32con.HWND_TOPMOST, 0, 0, 0, 0, win32con.SWP_NOMOVE | win32con.SWP_NOSIZE)
 
+# --- 背景音乐 ---
+pygame.mixer.music.load(resource_path('resources/cat.mp3'))
+pygame.mixer.music.play(-1)  # -1 表示无限循环
+
 # --- 加载资源 ---
 try:
     petal_image = pygame.image.load(resource_path('resources/petal.png')).convert_alpha()
